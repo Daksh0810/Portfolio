@@ -1,0 +1,277 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+/* Global Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background: #050505;
+    color: #CFCFCF;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(5, 5, 5, 0.95);
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+}
+
+/* Logo */
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #0090B0;
+    padding-bottom: 6px;
+    letter-spacing: 1px;
+}
+
+/* Nav Links */
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav-link {
+    color: #CFCFCF;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-link:hover {
+    color: #0090B0;
+    transform: scale(1.05);
+}
+
+.nav-link.active {
+    color: #0090B0;
+    font-weight: 600;
+    border-bottom: 2px solid #0090B0;
+}
+
+/* Section Styles */
+.section {
+    padding: 30px 40px;
+    text-align: center;
+    margin: 110px auto;
+    max-width: 850px;
+    background: rgba(10, 10, 10, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0, 144, 176, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+/* Section Title */
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #0090B0;
+    border-bottom: 2px solid #0090B0;
+    display: inline-block;
+    padding-bottom: 4px;
+    margin-bottom: 15px;
+}
+
+/* Section Content */
+.section-content {
+    font-size: 0.9rem;
+    color: #A0A0A0;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* Buttons */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #050505;
+    background: #0090B0;
+    border: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 3px 5px rgba(0, 144, 176, 0.2);
+}
+
+.button:hover {
+    background: #007A90;
+    box-shadow: 0 5px 10px rgba(0, 144, 176, 0.3);
+    transform: translateY(-2px);
+}
+
+.downloadbutton {
+    display: inline-block;
+    padding: 12px 24px;
+    margin-top: 10px; /* Adjusted spacing */
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro", "SF Pro Display", "SF Pro Text", sans-serif;
+    color: #f5f5f5;
+    background: #1c1c1e; /* Dark iOS-style background */
+    border: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 250px; /* Uniform button width */
+}
+
+.downloadbutton:hover {
+    background: #2c2c2e; /* Slightly lighter for hover effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+.downloadbutton:active {
+    background: #3a3a3c; /* Even lighter on click */
+    transform: scale(0.98);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: #1c1c1e;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 100%;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.contact-input, 
+.contact-textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro", sans-serif;
+    border: none;
+    border-radius: 8px;
+    background: #2c2c2e;
+    color: #f5f5f5;
+    transition: 0.3s;
+    box-sizing: border-box;
+}
+
+.contact-input:focus, 
+.contact-textarea:focus {
+    outline: none;
+    background: #3a3a3c;
+}
+
+.contact-textarea {
+    min-height: 100px;
+    resize: none;
+}
+
+.contact-button {
+    width: 100%;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #f5f5f5;
+    background: #0a84ff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.contact-button:hover {
+    background: #007aff;
+    transform: translateY(-2px);
+}
+
+.contact-button:active {
+    background: #0056b3;
+    transform: scale(0.98);
+}
+
+.contact-status {
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.contact-status.success {
+    color: #30d158;
+}
+
+.contact-status.error {
+    color: #ff453a;
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+    .contact-form {
+        max-width: 90%;
+        padding: 15px;
+    }
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.social-icons a {
+    font-size: 1.5rem;
+    color: #0090B0;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #007A90;
+    transform: scale(1.15);
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .section {
+        padding: 30px 20px;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
+
+    .social-icons a {
+        font-size: 1.2rem;
+    }
+}
