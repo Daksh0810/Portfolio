@@ -138,7 +138,7 @@ const Footer = () => (
 
 const App = () => {
   return (
-    <Router basename="/Portfolio">
+    <Router>
       <Navbar />
       <div className="content-container"> 
         <Routes>
