@@ -139,7 +139,7 @@ const Projects = () => (
     title="Professional and Internship Experience"
     content={
       <>
-      <p>Hello</p>
+      <p>Hello this is projects page</p>
       </>
         }
       />
