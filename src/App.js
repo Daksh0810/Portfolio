@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link, useLocation} from "react-
 import { motion } from "framer-motion";
 import "tailwindcss/tailwind.css";
 import "./styles.css";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaExternalLinkAlt } from "react-icons/fa";
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
@@ -134,16 +134,93 @@ const Experience = () => (
   />
 );
 
+const projectsData = [
+  {
+    title: "Emotion Detection System",
+    description: "A real-time emotion detection system using OpenCV, DeepFace, and Tkinter, integrating face detection and emotion recognition with a user-friendly GUI.",
+    techStack: ["OpenCV", "DeepFace", "Tkinter", "Python"],
+    githubLink: "https://github.com/your-username/emotion-detection",
+  },
+  {
+    title: "AI Chatbot using Gemma API",
+    description: "Developed an AI chatbot using the Gemma API to provide automated responses to user queries, implementing NLP techniques.",
+    techStack: ["Gemma API", "NLP", "Python"],
+    githubLink: "https://github.com/your-username/ai-chatbot",
+  },
+  {
+    title: "COVID-19 Detection from Chest X-rays",
+    description: "Created a CNN model to predict COVID-19 using chest X-ray images.",
+    techStack: ["Python", "CNN", "TensorFlow"],
+    githubLink: "https://github.com/your-username/covid-xray",
+  },
+  {
+    title: "Simple Calculator",
+    description: "A web application for a simple calculator using HTML, CSS, and JavaScript with a user-friendly interface.",
+    techStack: ["HTML", "CSS", "JavaScript"],
+    githubLink: "https://github.com/your-username/simple-calculator",
+    liveDemo: "https://your-live-demo-link.com",
+  },
+  {
+    title: "Iris Dataset Sepal Length Prediction",
+    description: "Used simple linear regression to predict sepal length in the Iris dataset and visualized results.",
+    techStack: ["Python", "Pandas", "Matplotlib"],
+    githubLink: "https://github.com/your-username/iris-regression",
+  },
+  {
+    title: "Handwritten Digit Recognition",
+    description: "Developed a CNN model to recognize handwritten digits from the MNIST dataset.",
+    techStack: ["Python", "CNN", "TensorFlow"],
+    githubLink: "https://github.com/your-username/digit-recognition",
+  },
+];
+
+// Inline Projects Component
 const Projects = () => (
-  <Section 
-    title="Professional and Internship Experience"
-    content={
-      <>
-      <p>Hello this is projects page</p>
-      </>
-        }
-      />
-  );
+  <div className="projects-container">
+    <h1 className="projects-title">Projects</h1>
+    <div className="projects-grid">
+      {projectsData.map((project, index) => (
+        <motion.div
+          key={index}
+          className="project-card"
+          whileHover={{ scale: 1.05 }}
+        >
+          <h3 className="project-title">{project.title}</h3>
+          <p className="project-description">{project.description}</p>
+          <div className="flex flex-wrap gap-2 mb-4">
+            {project.techStack.map((tech, idx) => (
+              <span key={idx} className="tech-tag">
+                {tech}
+              </span>
+            ))}
+          </div>
+          <div className="project-links flex items-center gap-4">
+            <a
+              href={project.githubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="GitHub Repo"
+              className="text-xl"
+            >
+              <FaGithub />
+            </a>
+            {project.liveDemo && (
+              <a
+                href={project.liveDemo}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Live Demo"
+              >
+                <FaExternalLinkAlt />
+              </a>
+            )}
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+);
+
 const Contact = () => (
   <Section 
     title="Contact Me"

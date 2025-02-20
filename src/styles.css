@@ -343,3 +343,126 @@ html {
         display: block;   /* Show hamburger on mobile */
     }
 }
+
+/* Container and Grid Styling */
+.projects-container {
+    padding: 1rem;
+    background-color: #050505;
+    color: #e5e5e5;
+    min-height: 100vh;
+  }
+  
+  .projects-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+  }
+  
+  /* Grid Layout */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  /* Responsive Grid */
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Project Card Styling */
+  .project-card {
+    background-color: #2a2a2a;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    border: 1px solid #3d3d3d;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    background-color: #333333;
+  }
+  
+  /* Title and Description */
+  .project-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 0.4rem;
+  }
+  
+  .project-description {
+    color: #b0b0b0;
+    margin-bottom: 0.6rem;
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+  
+  /* Tech Stack Tags */
+  .tech-tag {
+    background-color: #3b82f6;
+    color: #e0e7ff;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.2rem 0.4rem;
+    border-radius: 9999px;
+    margin-right: 0.4rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  
+  .tech-tag:hover {
+    background-color: #1d4ed8;
+    color: #ffffff;
+  }
+  
+  /* Links and Icons */
+  .project-links a {
+    color: #b0b0b0;
+    font-size: 1.1rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .project-links a:hover {
+    color: #ffffff;
+    transform: scale(1.15);
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .projects-container {
+      padding: 0.75rem;
+    }
+  
+    .project-card {
+      padding: 0.75rem;
+    }
+  
+    .projects-title {
+      font-size: 1.5rem;
+    }
+  }
+
+  /* Fade-in Animation */
+@keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(0px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .projects-container {
+    animation: fadeInUp 0.6s ease-out;
+  }
+  
+  
