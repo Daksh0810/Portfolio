@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link, useLocation} from "react-router-dom";
 import { motion } from "framer-motion";
 import "tailwindcss/tailwind.css";
 import "./styles.css";
-import { FaGithub, FaLinkedin, FaArrowUp } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
