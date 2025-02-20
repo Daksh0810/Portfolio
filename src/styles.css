@@ -225,8 +225,20 @@ body {
 /* Responsive Design */
 @media (max-width: 500px) {
     .contact-form {
-        max-width: 90%;
+        max-width: 100%;
         padding: 15px;
+    }
+
+    .navbar {
+        padding: 8px;
+    }
+
+    .nav-link {
+        font-size: 0.8rem;
+    }
+
+    .logo {
+        font-size: 1.2rem;
     }
 }
 
@@ -259,11 +271,8 @@ html {
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-links {
-        display: none;
-    }
-
-    .hamburger {
-        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 
     .section {
@@ -273,50 +282,8 @@ html {
     .logo {
         font-size: 1.3rem;
     }
-}
 
-/* Hamburger Menu */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-}
-
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background: #CFCFCF;
-    transition: all 0.3s ease;
-}
-
-/* Side Navigation */
-.side-nav {
-    position: fixed;
-    top: 0;
-    left: -250px;
-    width: 250px;
-    height: 100%;
-    background: rgba(5, 5, 5, 0.95);
-    padding-top: 60px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-    transition: left 0.3s ease;
-    z-index: 1100;
-}
-
-.side-nav.open {
-    left: 0;
-}
-
-.side-nav a {
-    display: block;
-    color: #CFCFCF;
-    padding: 12px 20px;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: background 0.3s ease;
-}
-
-.side-nav a:hover {
-    background: #0090B0;
+    .social-icons a {
+        font-size: 1.2rem;
+    }
 }
