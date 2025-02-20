@@ -1,23 +1,36 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Link, useLocation} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import "tailwindcss/tailwind.css";
 import "./styles.css";
-import { FaGithub, FaLinkedin, FaArrowUp } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaArrowUp, FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
   const location = useLocation();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <nav className="navbar">
       <span className="logo">Daksh Gulati</span>
-      <div className="nav-links">
-        <Link className={`nav-link ${location.pathname === "/" ? "active" : ""}`} to="/">About</Link>
-        <Link className={`nav-link ${location.pathname === "/experience" ? "active" : ""}`} to="/experience">Experience</Link>
-        <Link className={`nav-link ${location.pathname === "/projects" ? "active" : ""}`} to="/projects">Projects</Link>
-        <Link className={`nav-link ${location.pathname === "/skills" ? "active" : ""}`} to="/skills">Skills</Link>
-        <Link className={`nav-link ${location.pathname === "/certifications" ? "active" : ""}`} to="/certifications">Certifications</Link>
-        <Link className={`nav-link ${location.pathname === "/resume" ? "active" : ""}`} to="/resume">Resume</Link>
-        <Link className={`nav-link ${location.pathname === "/contact" ? "active" : ""}`} to="/contact">Contact</Link>
+      <div className="hamburger" onClick={toggleMobileMenu}>
+        {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+      </div>
+      <div className={`nav-links ${isMobileMenuOpen ? "open" : ""}`}>
+        <Link className={`nav-link ${location.pathname === "/" ? "active" : ""}`} to="/" onClick={closeMobileMenu}>About</Link>
+        <Link className={`nav-link ${location.pathname === "/experience" ? "active" : ""}`} to="/experience" onClick={closeMobileMenu}>Experience</Link>
+        <Link className={`nav-link ${location.pathname === "/projects" ? "active" : ""}`} to="/projects" onClick={closeMobileMenu}>Projects</Link>
+        <Link className={`nav-link ${location.pathname === "/skills" ? "active" : ""}`} to="/skills" onClick={closeMobileMenu}>Skills</Link>
+        <Link className={`nav-link ${location.pathname === "/certifications" ? "active" : ""}`} to="/certifications" onClick={closeMobileMenu}>Certifications</Link>
+        <Link className={`nav-link ${location.pathname === "/resume" ? "active" : ""}`} to="/resume" onClick={closeMobileMenu}>Resume</Link>
+        <Link className={`nav-link ${location.pathname === "/contact" ? "active" : ""}`} to="/contact" onClick={closeMobileMenu}>Contact</Link>
       </div>
     </nav>
   );
@@ -99,7 +112,7 @@ const Resume = () => (
     <p className="section-content text-xl text-gray-300 mb-8 max-w-2xl">
       You can view or download my resume using the buttons below.
     </p>
-    <div className="flex flex-col items-center gap-4"> {/* Stacking buttons vertically */}
+    <div className="flex flex-col items-center gap-4">
       <button 
         onClick={() => window.open(process.env.PUBLIC_URL + "/Daksh Gulati Updated Resume - Feb 2025.pdf", "_blank")}
         className="downloadbutton"
