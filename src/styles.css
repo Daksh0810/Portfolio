@@ -225,20 +225,8 @@ body {
 /* Responsive Design */
 @media (max-width: 500px) {
     .contact-form {
-        max-width: 100%;
+        max-width: 90%;
         padding: 15px;
-    }
-
-    .navbar {
-        padding: 8px;
-    }
-
-    .nav-link {
-        font-size: 0.8rem;
-    }
-
-    .logo {
-        font-size: 1.2rem;
     }
 }
 
