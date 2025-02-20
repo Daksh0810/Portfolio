@@ -8,68 +8,24 @@ import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const location = useLocation();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
-  const navLinks = [
-    { path: "/", label: "About" },
-    { path: "/experience", label: "Experience" },
-    { path: "/projects", label: "Projects" },
-    { path: "/skills", label: "Skills" },
-    { path: "/certifications", label: "Certifications" },
-    { path: "/resume", label: "Resume" },
-    { path: "/contact", label: "Contact" },
-  ];
 
   return (
-    <nav className="navbar flex justify-between items-center p-4 shadow-md bg-white relative z-50">
-      <span className="logo text-xl font-bold">Daksh Gulati</span>
-
-      {/* Desktop Navbar - visible only on md and larger */}
-      <div className="hidden md:flex space-x-6">
-        {navLinks.map((link) => (
-          <Link
-            key={link.path}
-            className={`nav-link ${
-              location.pathname === link.path
-                ? "text-blue-500 font-semibold"
-                : "text-gray-700"
-            } hover:text-blue-500`}
-            to={link.path}
-          >
-            {link.label}
-          </Link>
-        ))}
+    <nav className="navbar">
+      <span className="logo">Daksh Gulati</span>
+      <div className="nav-links">
+        <Link className={`nav-link ${location.pathname === "/" ? "active" : ""}`} to="/">About</Link>
+        <Link className={`nav-link ${location.pathname === "/experience" ? "active" : ""}`} to="/experience">Experience</Link>
+        <Link className={`nav-link ${location.pathname === "/projects" ? "active" : ""}`} to="/projects">Projects</Link>
+        <Link className={`nav-link ${location.pathname === "/skills" ? "active" : ""}`} to="/skills">Skills</Link>
+        <Link className={`nav-link ${location.pathname === "/certifications" ? "active" : ""}`} to="/certifications">Certifications</Link>
+        <Link className={`nav-link ${location.pathname === "/resume" ? "active" : ""}`} to="/resume">Resume</Link>
+        <Link className={`nav-link ${location.pathname === "/contact" ? "active" : ""}`} to="/contact">Contact</Link>
       </div>
-
-      {/* Mobile Hamburger Icon - visible only on small screens */}
-      <button className="md:hidden" onClick={toggleMenu}>
-        {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-      </button>
-
-      {/* Mobile Dropdown Menu */}
-      {isMenuOpen && (
-        <div className="absolute top-16 left-0 w-full bg-white shadow-md md:hidden">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              className={`block py-2 px-4 ${
-                location.pathname === link.path
-                  ? "text-blue-500 font-semibold"
-                  : "text-gray-700"
-              } hover:bg-gray-100`}
-              to={link.path}
-              onClick={() => setIsMenuOpen(false)} // Close menu on click
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
-      )}
     </nav>
   );
 };
+
+
 
 const Section = ({ title, content }) => (
   <motion.section className="section" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
