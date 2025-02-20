@@ -40,6 +40,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .nav-link {
@@ -63,7 +64,7 @@ body {
 
 /* Section Styles */
 .section {
-    padding: 30px 40px;
+    padding: 5vw;
     text-align: center;
     margin: 110px auto;
     max-width: 850px;
@@ -86,7 +87,7 @@ body {
 
 /* Section Content */
 .section-content {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #A0A0A0;
     line-height: 1.6;
     text-align: justify;
@@ -97,7 +98,7 @@ body {
     display: inline-block;
     padding: 10px 20px;
     margin-top: 15px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 500;
     color: #050505;
     background: #0090B0;
@@ -117,29 +118,30 @@ body {
 .downloadbutton {
     display: inline-block;
     padding: 12px 24px;
-    margin-top: 10px; /* Adjusted spacing */
+    margin-top: 10px;
     font-size: 1rem;
     font-weight: 600;
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro", "SF Pro Display", "SF Pro Text", sans-serif;
     color: #f5f5f5;
-    background: #1c1c1e; /* Dark iOS-style background */
+    background: #1c1c1e;
     border: none;
     border-radius: 10px;
     transition: all 0.3s ease;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     text-align: center;
-    width: 250px; /* Uniform button width */
+    width: 100%;
+    max-width: 250px;
 }
 
 .downloadbutton:hover {
-    background: #2c2c2e; /* Slightly lighter for hover effect */
+    background: #2c2c2e;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
     transform: translateY(-2px);
 }
 
 .downloadbutton:active {
-    background: #3a3a3c; /* Even lighter on click */
+    background: #3a3a3c;
     transform: scale(0.98);
 }
 
@@ -151,8 +153,8 @@ body {
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    max-width: 400px;
     width: 100%;
+    max-width: 400px;
     margin: auto;
     box-sizing: border-box;
 }
@@ -160,7 +162,6 @@ body {
 .contact-input, 
 .contact-textarea {
     width: 100%;
-    max-width: 100%;
     padding: 12px;
     font-size: 1rem;
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro", sans-serif;
@@ -223,10 +224,42 @@ body {
 }
 
 /* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .section {
+        padding: 20px;
+        margin: 90px auto;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
+
+    .social-icons a {
+        font-size: 1.2rem;
+    }
+
+    .downloadbutton {
+        width: 100%;
+    }
+}
+
 @media (max-width: 500px) {
     .contact-form {
         max-width: 90%;
         padding: 15px;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+    }
+
+    .section-content {
+        font-size: 0.9rem;
     }
 }
 
@@ -254,24 +287,4 @@ body {
 /* Smooth Scrolling */
 html {
     scroll-behavior: smooth;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-links {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .section {
-        padding: 30px 20px;
-    }
-
-    .logo {
-        font-size: 1.3rem;
-    }
-
-    .social-icons a {
-        font-size: 1.2rem;
-    }
 }
