@@ -134,7 +134,16 @@ const Experience = () => (
   />
 );
 
-
+const Projects = () => (
+  <Section 
+    title="Professional and Internship Experience"
+    content={
+      <>
+      <p>Hello</p>
+      </>
+        }
+      />
+  );
 const Contact = () => (
   <Section 
     title="Contact Me"
@@ -209,7 +218,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<About />} />
           <Route path="/experience" element={<Experience />} />
-          <Route path="/projects" element={<Section title="Projects" content="Emotion Detection System, AI Chatbot, COVID-19 Detection, Image Processing using CNN." />} />
+          <Route path="/projects" element={<Projects />} />
           <Route path="/skills" element={<Section title="Tech Stack" content="Python, R, JavaScript, TensorFlow, Keras, Power BI, Tableau." />} />
           <Route path="/certifications" element={<Section title="Certifications" content="Generative AI, AI & ML, Business Intelligence, Power BI, R Programming." />} />
           <Route path="/resume" element={<Resume />} />
