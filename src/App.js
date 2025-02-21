@@ -3,8 +3,11 @@ import { BrowserRouter as Router, Routes, Route, Link, useLocation} from "react-
 import { motion } from "framer-motion";
 import "tailwindcss/tailwind.css";
 import "./styles.css";
+import BlurText from "./BlurText";
 import { FaGithub, FaLinkedin, FaExternalLinkAlt } from "react-icons/fa";
 import { Menu, X } from "lucide-react";
+import { FaPython, FaRProject, FaHtml5, FaJs, FaDatabase, FaTable, FaMicrosoft, FaChartBar } from "react-icons/fa";
+import { SiTensorflow, SiKeras, SiScikitlearn, SiPandas, SiNumpy, SiTableau, SiMysql, SiMatplotlib } from "react-icons/si";
 
 const Navbar = () => {
   const location = useLocation();
@@ -105,7 +108,7 @@ const Experience = () => (
         <p>During my internship at F13 Technologies, I was responsible for in-depth social media monitoring for a prominent government entity. My tasks included:</p>
 
         <h3>Social Media Monitoring:</h3>
-        <p>Conducted daily in-depth social media monitoring to track the public’s response to various government initiatives, providing valuable insights that helped shape communication strategies.</p>
+        <p>Conducted daily in-depth social media monitoring to track the public response to various government initiatives, providing valuable insights that helped shape communication strategies.</p>
 
         <h3>Applied Sentiment Analysis and NLP:</h3>
         <p>Leveraged sentiment analysis and natural language processing (NLP) techniques on real-time data to gauge public sentiment and study responses effectively.</p>
@@ -180,6 +183,12 @@ const Projects = () => (
     <h1 className="projects-title">Projects</h1>
     <div className="projects-grid">
       {projectsData.map((project, index) => (
+        <a
+        href={project.githubLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        title="GitHub Repo"
+      >
         <motion.div
           key={index}
           className="project-card"
@@ -194,30 +203,66 @@ const Projects = () => (
               </span>
             ))}
           </div>
-          <div className="project-links flex items-center gap-4">
-            <a
-              href={project.githubLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              title="GitHub Repo"
-              className="text-xl"
-            >
-              <FaGithub />
-            </a>
-            {project.liveDemo && (
-              <a
-                href={project.liveDemo}
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Live Demo"
-              >
-                <FaExternalLinkAlt />
-              </a>
-            )}
-          </div>
         </motion.div>
+        </a>
       ))}
     </div>
+  </div>
+);
+
+const skillsData = [
+  {
+    category: "Machine Learning",
+    skills: [
+      { name: "Python", icon: <FaPython className="text-yellow-400" /> },
+      { name: "scikit-learn", icon: <SiScikitlearn className="text-orange-500" /> },
+      { name: "Pandas", icon: <SiPandas className="text-pink-500" /> },
+      { name: "NumPy", icon: <SiNumpy className="text-blue-500" /> },
+      { name: "TensorFlow", icon: <SiTensorflow className="text-orange-400" /> },
+      { name: "Keras", icon: <SiKeras className="text-red-400" /> },
+    ],
+  },
+  {
+    category: "Data Visualization",
+    skills: [
+      { name: "Power BI", icon: <FaChartBar className="text-yellow-500" /> },
+      { name: "Tableau", icon: <SiTableau className="text-blue-600" /> },
+      { name: "Microsoft Excel", icon: <FaMicrosoft className="text-green-500" /> },
+      { name: "Matplotlib", icon: <FaChartBar className="text-blue-400" /> },
+      { name: "Seaborn", icon: <FaChartBar className="text-teal-400" /> },
+    ],
+  },
+  {
+    category: "Database",
+    skills: [
+      { name: "MySQL", icon: <SiMysql className="text-blue-600" /> },
+    ],
+  },
+  {
+    category: "Programming Languages",
+    skills: [
+      { name: "Python", icon: <FaPython className="text-yellow-400" /> },
+      { name: "R", icon: <FaRProject className="text-blue-500" /> },
+      { name: "JavaScript", icon: <FaJs className="text-yellow-300" /> },
+      { name: "HTML", icon: <FaHtml5 className="text-orange-500" /> },
+    ],
+  },
+];
+
+const handleAnimationComplete = () => {
+  console.log('All letters have animated!');
+};
+
+const Skills = () => (
+  <div className="skills-container flex justify-center items-center p-10 bg-gray-900 min-h-screen" style={{ paddingTop: '70px', textAlign:"center", fontSize:'1.5rem', fontWeight:'600', color:'#0090B0'}}>
+    <BlurText
+      text="Skills"
+      delay={150}
+      animateBy="words"
+      direction="top"
+      onAnimationComplete={handleAnimationComplete}
+      className="text-2xl mb-8"
+    />
   </div>
 );
 
@@ -296,7 +341,7 @@ const App = () => {
           <Route path="/" element={<About />} />
           <Route path="/experience" element={<Experience />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/skills" element={<Section title="Tech Stack" content="Python, R, JavaScript, TensorFlow, Keras, Power BI, Tableau." />} />
+          <Route path="/skills" element={<Skills />} />
           <Route path="/certifications" element={<Section title="Certifications" content="Generative AI, AI & ML, Business Intelligence, Power BI, R Programming." />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/contact" element={<Contact />} />

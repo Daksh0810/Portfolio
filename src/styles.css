@@ -358,13 +358,15 @@ html {
     text-align: center;
     margin-bottom: 1.5rem;
     color: #ffffff;
+    padding-top: 3rem;
   }
   
   /* Grid Layout */
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    column-gap: 1.5rem;
+    row-gap: 3rem;
   }
   
   /* Responsive Grid */
@@ -382,6 +384,10 @@ html {
     padding: 1rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     border: 1px solid #3d3d3d;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes content to fill space */
+    height: 100%; /* Ensures card fills the grid cell */
   }
   
   .project-card:hover {
@@ -465,4 +471,8 @@ html {
     animation: fadeInUp 0.6s ease-out;
   }
   
+  a {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+  }
   
