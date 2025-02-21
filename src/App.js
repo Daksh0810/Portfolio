@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import "tailwindcss/tailwind.css";
 import "./styles.css";
 import BlurText from "./BlurText";
-import { FaGithub, FaLinkedin, FaExternalLinkAlt } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Menu, X } from "lucide-react";
-import { FaPython, FaRProject, FaHtml5, FaJs, FaDatabase, FaTable, FaMicrosoft, FaChartBar } from "react-icons/fa";
-import { SiTensorflow, SiKeras, SiScikitlearn, SiPandas, SiNumpy, SiTableau, SiMysql, SiMatplotlib } from "react-icons/si";
+/*import { FaPython, FaRProject, FaHtml5, FaJs, FaMicrosoft, FaChartBar } from "react-icons/fa";
+import { SiTensorflow, SiKeras, SiScikitlearn, SiPandas, SiNumpy, SiTableau, SiMysql } from "react-icons/si";*/
 
 const Navbar = () => {
   const location = useLocation();
@@ -210,7 +210,7 @@ const Projects = () => (
   </div>
 );
 
-const skillsData = [
+/*const skillsData = [
   {
     category: "Machine Learning",
     skills: [
@@ -248,10 +248,11 @@ const skillsData = [
     ],
   },
 ];
-
+*/
 const handleAnimationComplete = () => {
   console.log('All letters have animated!');
 };
+
 
 const Skills = () => (
   <div className="skills-container flex justify-center items-center p-10 bg-gray-900 min-h-screen" style={{ paddingTop: '70px', textAlign:"center", fontSize:'1.5rem', fontWeight:'600', color:'#0090B0'}}>
