@@ -3,11 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Link, useLocation} from "react-
 import { motion } from "framer-motion";
 import "tailwindcss/tailwind.css";
 import "./styles.css";
-import BlurText from "./BlurText";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Menu, X } from "lucide-react";
-/*import { FaPython, FaRProject, FaHtml5, FaJs, FaMicrosoft, FaChartBar } from "react-icons/fa";
-import { SiTensorflow, SiKeras, SiScikitlearn, SiPandas, SiNumpy, SiTableau, SiMysql } from "react-icons/si";*/
 
 const Navbar = () => {
   const location = useLocation();
@@ -210,60 +207,59 @@ const Projects = () => (
   </div>
 );
 
-/*const skillsData = [
+const skillsData = [
   {
     category: "Machine Learning",
     skills: [
-      { name: "Python", icon: <FaPython className="text-yellow-400" /> },
-      { name: "scikit-learn", icon: <SiScikitlearn className="text-orange-500" /> },
-      { name: "Pandas", icon: <SiPandas className="text-pink-500" /> },
-      { name: "NumPy", icon: <SiNumpy className="text-blue-500" /> },
-      { name: "TensorFlow", icon: <SiTensorflow className="text-orange-400" /> },
-      { name: "Keras", icon: <SiKeras className="text-red-400" /> },
+      { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+      { name: "scikit-learn", logo: "https://scikit-learn.org/stable/_static/scikit-learn-logo-small.png" },
+      { name: "Pandas", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" },
+      { name: "NumPy", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" },
+      { name: "TensorFlow", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" },
+      { name: "Keras", logo: "https://upload.wikimedia.org/wikipedia/commons/a/ae/Keras_logo.svg" },
     ],
   },
   {
     category: "Data Visualization",
     skills: [
-      { name: "Power BI", icon: <FaChartBar className="text-yellow-500" /> },
-      { name: "Tableau", icon: <SiTableau className="text-blue-600" /> },
-      { name: "Microsoft Excel", icon: <FaMicrosoft className="text-green-500" /> },
-      { name: "Matplotlib", icon: <FaChartBar className="text-blue-400" /> },
-      { name: "Seaborn", icon: <FaChartBar className="text-teal-400" /> },
+      { name: "Power BI", logo: "/PowerBI.png" },
+      { name: "Tableau", logo: "https://cdn.worldvectorlogo.com/logos/tableau-software.svg" },
+      { name: "Microsoft Excel", logo: "/Excel.png" },
+      { name: "Matplotlib", logo: "https://matplotlib.org/stable/_static/logo2.svg" },
+      { name: "Seaborn", logo: "https://seaborn.pydata.org/_static/logo-wide-lightbg.svg" },
     ],
   },
   {
     category: "Database",
-    skills: [
-      { name: "MySQL", icon: <SiMysql className="text-blue-600" /> },
-    ],
+    skills: [{ name: "MySQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" }],
   },
   {
     category: "Programming Languages",
     skills: [
-      { name: "Python", icon: <FaPython className="text-yellow-400" /> },
-      { name: "R", icon: <FaRProject className="text-blue-500" /> },
-      { name: "JavaScript", icon: <FaJs className="text-yellow-300" /> },
-      { name: "HTML", icon: <FaHtml5 className="text-orange-500" /> },
+      { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+      { name: "R", logo: "https://www.r-project.org/logo/Rlogo.png" },
+      { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
     ],
   },
 ];
-*/
-const handleAnimationComplete = () => {
-  console.log('All letters have animated!');
-};
-
 
 const Skills = () => (
-  <div className="skills-container flex justify-center items-center p-10 bg-gray-900 min-h-screen" style={{ paddingTop: '70px', textAlign:"center", fontSize:'1.5rem', fontWeight:'600', color:'#0090B0'}}>
-    <BlurText
-      text="Skills"
-      delay={150}
-      animateBy="words"
-      direction="top"
-      onAnimationComplete={handleAnimationComplete}
-      className="text-2xl mb-8"
-    />
+  <div className="skills-container flex flex-col justify-center items-center p-10 min-h-screen bg-gray-900" style={{ paddingTop: '70px', textAlign: "center" }}>
+    <div className="w-full max-w-6xl space-y-12">
+      {skillsData.map((category, idx) => (
+        <div key={idx}>
+          <h2 className="text-3xl font-semibold text-cyan-400 mb-4 text-left">{category.category}</h2>
+          <div className="skills-grid">
+            {category.skills.map((skill, index) => (
+              <div key={index} className="skill-item">
+                <img src={skill.logo} alt={skill.name} className="skill-logo" />
+                <span className="skill-name">{skill.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
   </div>
 );
 

@@ -476,3 +476,42 @@ html {
     text-decoration-color: transparent;
   }
   
+  /* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+  }
+  
+  /* Skill Item */
+  .skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .skill-item:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Skill Logo */
+  .skill-logo {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    margin-bottom: 8px;
+  }
+  
+  /* Skill Name */
+  .skill-name {
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  
