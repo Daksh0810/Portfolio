@@ -476,42 +476,182 @@ html {
     text-decoration-color: transparent;
   }
   
-  /* Skills Grid */
+ /* Page Fade-in */
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.skills-container {
+  animation: pageFadeIn 1s ease forwards;
+  opacity: 0; /* Start invisible */
+}
+
+/* Skills Grid */
 .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 20px;
-    justify-items: center;
-    align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+}
+
+/* Skill Item */
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0; /* Start invisible */
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* Hover Effect */
+.skill-item:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Skill Logo */
+.skill-logo {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+/* Skill Name */
+.skill-name {
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Fade-in Animation for Skill Items */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  /* Skill Item */
-  .skill-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .skill-item:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Staggered Fade-In for Skills */
+.skill-item:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.skill-item:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.skill-item:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.skill-item:nth-child(4) {
+  animation-delay: 0.8s;
+}
+.skill-item:nth-child(5) {
+  animation-delay: 1s;
+}
+/* Extend nth-child for more items if needed */
+
+/* Certifications Grid */
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  /* Skill Logo */
-  .skill-logo {
-    width: 110px;
-    height: 110px;
-    object-fit: contain;
-    margin-bottom: 8px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+/* Certification Card with Link */
+.cert-card {
+  background-color: #1f2937; /* dark gray */
+  border-radius: 12px;
+  padding: 20px;
+  text-align: left;
+  color: white;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   
-  /* Skill Name */
-  .skill-name {
-    color: white;
+  /* Apply Fade-in */
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+  animation-delay: calc(0.1s * var(--i)); /* Staggered effect */
+}
+
+.cert-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  background-color: #374151; /* slightly lighter gray on hover */
+}
+
+/* Certification Title */
+.cert-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #00bcd4; /* cyan */
+  margin-bottom: 8px;
+}
+
+/* Certification Date */
+.cert-date {
+  font-size: 0.9rem;
+  color: #9ca3af; /* gray-400 */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .certifications-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Smaller boxes */
+    gap: 15px;
+  }
+
+  .cert-card {
+    padding: 15px;
+  }
+
+  .cert-title {
     font-size: 1rem;
-    font-weight: 500;
   }
-  
-  
+
+  .cert-date {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .certifications-grid {
+    grid-template-columns: 1fr; /* Single column on very small screens */
+  }
+
+  .cert-card {
+    padding: 12px;
+  }
+
+  .cert-title {
+    font-size: 0.9rem;
+  }
+
+  .cert-date {
+    font-size: 0.75rem;
+  }
+}

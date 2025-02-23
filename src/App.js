@@ -139,38 +139,37 @@ const projectsData = [
     title: "Emotion Detection System",
     description: "A real-time emotion detection system using OpenCV, DeepFace, and Tkinter, integrating face detection and emotion recognition with a user-friendly GUI.",
     techStack: ["OpenCV", "DeepFace", "Tkinter", "Python"],
-    githubLink: "https://github.com/your-username/emotion-detection",
+    githubLink: "https://github.com/Daksh0810/Emotion-Detection-System",
   },
   {
     title: "AI Chatbot using Gemma API",
     description: "Developed an AI chatbot using the Gemma API to provide automated responses to user queries, implementing NLP techniques.",
     techStack: ["Gemma API", "NLP", "Python"],
-    githubLink: "https://github.com/your-username/ai-chatbot",
+    githubLink: "https://github.com/Daksh0810/Chatbot-using-Gemma-API",
   },
   {
     title: "COVID-19 Detection from Chest X-rays",
     description: "Created a CNN model to predict COVID-19 using chest X-ray images.",
     techStack: ["Python", "CNN", "TensorFlow"],
-    githubLink: "https://github.com/your-username/covid-xray",
+    githubLink: "https://github.com/Daksh0810/COVID-19-Prediction",
   },
   {
     title: "Simple Calculator",
     description: "A web application for a simple calculator using HTML, CSS, and JavaScript with a user-friendly interface.",
     techStack: ["HTML", "CSS", "JavaScript"],
-    githubLink: "https://github.com/your-username/simple-calculator",
-    liveDemo: "https://your-live-demo-link.com",
+    githubLink: "https://github.com/Daksh0810/Calculator",
   },
   {
     title: "Iris Dataset Sepal Length Prediction",
     description: "Used simple linear regression to predict sepal length in the Iris dataset and visualized results.",
     techStack: ["Python", "Pandas", "Matplotlib"],
-    githubLink: "https://github.com/your-username/iris-regression",
+    githubLink: "https://github.com/Daksh0810/Simple-Linear-Regression",
   },
   {
     title: "Handwritten Digit Recognition",
     description: "Developed a CNN model to recognize handwritten digits from the MNIST dataset.",
     techStack: ["Python", "CNN", "TensorFlow"],
-    githubLink: "https://github.com/your-username/digit-recognition",
+    githubLink: "https://github.com/Daksh0810/Image-Processing-using-CNN",
   },
 ];
 
@@ -245,6 +244,7 @@ const skillsData = [
 
 const Skills = () => (
   <div className="skills-container flex flex-col justify-center items-center p-10 min-h-screen bg-gray-900" style={{ paddingTop: '70px', textAlign: "center" }}>
+    <h1>Skills</h1>
     <div className="w-full max-w-6xl space-y-12">
       {skillsData.map((category, idx) => (
         <div key={idx}>
@@ -316,6 +316,41 @@ const Resume = () => (
   </motion.section>
 );
 
+const Certifications = () => (
+  <div className="certifications-container flex flex-col justify-center items-center p-10 min-h-screen bg-gray-900" style={{ paddingTop: '70px', textAlign: "center" }}>
+    <h1 className="text-4xl font-bold text-cyan-400 mb-10">Certifications</h1>
+
+    <div className="certifications-grid w-full max-w-6xl">
+      {certificationsData.map((cert, idx) => (
+        <a key={idx} href={cert.link} target="_blank" rel="noopener noreferrer" className="cert-card">
+          <h2 className="cert-title">{cert.title}</h2>
+          <p className="cert-date">{cert.issueDate}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+);
+
+const certificationsData = [
+  { title: "An Introduction to Generative AI", issueDate: "February 2025", link: "https://skillsoft.digitalbadges.skillsoft.com/231b6abe-63fc-4a53-93d0-15886b48dc23#acc.uWiqJo14" },
+  { title: "Artificial Intelligence and Machine Learning", issueDate: "October 2024", link: "https://skillsoft.digitalbadges.skillsoft.com/2a22f052-6ca8-40f5-a28d-a29ca16a8c1f#acc.rexkh1VB" },
+  { 
+    title: "Generative AI Landscape", 
+    issueDate: "July 2024", 
+    link: "/Generative AI Landscape Course Certificate.pdf", // Local path or hosted image link
+    isImage: true // Flag to indicate it's an image
+  },
+  { 
+    title: "Introduction to Business Intelligence ", 
+    issueDate: "May 2024", 
+    link: "/Introduction to Business Intelligence Certificate.pdf", // Local path or hosted image link
+    isImage: true // Flag to indicate it's an image
+  },
+  { title: "Application of Data Analysis in Business with R Programming", issueDate: "August 2023", link: "https://www.coursera.org/account/accomplishments/certificate/8NCCEU28FYV6" },
+  { title: "Learning Microsoft Power BI", issueDate: "June 2023", link: "/Power BI Course Certificate.pdf", isImage:true },
+  { title: "Excel Basics for Data Analysis", issueDate: "August 2022", link: "https://www.coursera.org/account/accomplishments/certificate/AC4VXNKN6F8E" }
+];
+
 const Footer = () => (
   <footer className="footer bg-gray-800 text-white text-center py-4 mt-8">
     <div className="social-icons">
@@ -339,7 +374,7 @@ const App = () => {
           <Route path="/experience" element={<Experience />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/skills" element={<Skills />} />
-          <Route path="/certifications" element={<Section title="Certifications" content="Generative AI, AI & ML, Business Intelligence, Power BI, R Programming." />} />
+          <Route path="/certifications" element={<Certifications />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
